@@ -23,10 +23,9 @@ public class AddTask implements Command {
     @Override
     public void execute(String[] tokens) {
         Task task = inputTask();
-        CollectionManager collectionManager = new CollectionManager();
-        ArrayList<Task> tasks = collectionManager.getTaskList();
+        ArrayList<Task> tasks = CollectionManager.getTaskList();
         tasks.add(task);
-        collectionManager.setTaskList(tasks);
+        CollectionManager.setTaskList(tasks);
 
     }
 

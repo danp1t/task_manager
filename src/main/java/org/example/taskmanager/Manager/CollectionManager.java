@@ -5,18 +5,13 @@ import org.example.taskmanager.Collection.Task;
 import java.util.ArrayList;
 
 public class CollectionManager {
-    private ArrayList<Task> taskList = new ArrayList<>();
+    private static ArrayList<Task> taskList = new ArrayList<>();
 
-
-
-
-
-
-    public ArrayList<Task> getTaskList() {
+    public static ArrayList<Task> getTaskList() {
         return taskList;
     }
 
-    public void setTaskList(ArrayList<Task> taskList) {
-        this.taskList = taskList;
+    public static void setTaskList(ArrayList<Task> taskList1) {
+        taskList = taskList1;
     }
 }
