@@ -46,4 +46,8 @@ public class Task {
     public void setPrize(int prize) {
         this.prize = prize;
     }
+
+    public String toString() {
+        return "name: " + this.name + "\npriority: " + this.priority + "\ndeadline: " + this.deadline + "\nprize: " + this.prize;
+    }
 }
