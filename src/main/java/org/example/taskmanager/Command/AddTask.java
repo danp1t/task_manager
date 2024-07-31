@@ -5,12 +5,12 @@ import org.example.taskmanager.Interface.Command;
 public class AddTask implements Command {
     @Override
     public String getCommandName() {
-        return "";
+        return "addTask";
     }
 
     @Override
     public String getDescription() {
-        return "";
+        return "Добавить задачу в список задач";
     }
 
     @Override

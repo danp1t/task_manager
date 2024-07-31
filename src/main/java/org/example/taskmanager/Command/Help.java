@@ -1,11 +1,14 @@
 package org.example.taskmanager.Command;
 
 import org.example.taskmanager.Interface.Command;
+import org.example.taskmanager.Manager.CommandManager;
+
+import java.util.HashMap;
 
 public class Help implements Command {
     @Override
     public String getCommandName() {
-        return "Help";
+        return "help";
     }
 
     @Override
@@ -15,7 +18,12 @@ public class Help implements Command {
 
     @Override
     public void execute(String[] tokens) {
-        System.out.println("Лол");
-
+        CommandManager commandManager = new CommandManager();
+        HashMap<String, Command> listCommand = commandManager.getListCommand();
+        for (String commandName : listCommand.keySet()) {
+            Command command = listCommand.get(commandName);
+            String text = String.format("%s - %s", command.getCommandName(), command.getDescription());
+            System.out.println(text);
+        }
     }
 }
