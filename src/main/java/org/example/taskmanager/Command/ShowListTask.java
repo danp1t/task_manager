@@ -21,7 +21,7 @@ public class ShowListTask implements Command {
     public void execute(String[] tokens) {
         ArrayList<Task> taskList = CollectionManager.getTaskList();
         for (Task task : taskList) {
-            System.out.println(task.getName());
+            System.out.println(task.getId() + ". " + task.getName() + ". Награда: " + task.getPrize());
         }
     }
 }

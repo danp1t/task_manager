@@ -74,9 +74,6 @@ public class CollectionManager {
         try {
             JsonObject jsonObjectUser = (JsonObject) new JsonParser().parse(new FileReader("/home/danp1t/github/TaskManager/user.json"));
             balance = jsonObjectUser.get("balance").getAsInt();
-            System.out.println(balance);
-
-
             ArrayList<Task> taskList = new ArrayList<>();
             JsonArray jsonArray = (JsonArray) new JsonParser().parse(new FileReader("/home/danp1t/github/TaskManager/collection.json"));
             for (JsonElement jsonElement : jsonArray){
