@@ -3,19 +3,18 @@ package org.example.taskmanager.Manager;
 import com.google.gson.*;
 import org.example.taskmanager.Collection.Priority;
 import org.example.taskmanager.Collection.Task;
+import org.example.taskmanager.Collection.User;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class CollectionManager {
     private static ArrayList<Task> taskList = new ArrayList<>();
+    private static int balance;
 
     public static ArrayList<Task> getTaskList() {
         return taskList;
@@ -23,6 +22,14 @@ public class CollectionManager {
 
     public static void setTaskList(ArrayList<Task> taskList1) {
         taskList = taskList1;
+    }
+
+    public static int getBalance() {
+        return balance;
+    }
+
+    public static void setBalance(int balance1) {
+        balance = balance1;
     }
 
     public static int nextID(){
@@ -47,7 +54,14 @@ public class CollectionManager {
     public static void saveJSON() {
         Gson gson = new Gson();
         try {
-            System.out.println(getJSON());
+            FileWriter fileWriter = new FileWriter("/home/danp1t/github/TaskManager/user.json");
+            int id = 0;
+            String userName = "Danil Putintsev";
+            User user = new User(id, userName, balance);
+
+            gson.toJson(user, fileWriter);
+            fileWriter.close();
+
             FileWriter writer = new FileWriter("/home/danp1t/github/TaskManager/collection.json");
             gson.toJson(getJSON(), writer);
             writer.close();
@@ -56,24 +70,13 @@ public class CollectionManager {
         }
     }
 
-//    public static void readJSONfromFile(){
-//        try {
-//            Gson gson = new Gson();
-//            FileReader reader = new FileReader("/home/danp1t/github/TaskManager/collection.json");
-//            //ArrayList<Task> listTask = gson.fromJson(reader, ArrayList.class);
-//            List<Task> books = Arrays.asList(gson.fromJson(reader, Task[].class));
-//            System.out.println(books);
-//            //taskList = listTask;
-//            reader.close();
-//        } catch (FileNotFoundException e) {
-//            System.out.println("Ошибка при чтении из файла");
-//            System.out.println(e.getMessage());
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
     public static void readJSONfromFile(){
         try {
+            JsonObject jsonObjectUser = (JsonObject) new JsonParser().parse(new FileReader("/home/danp1t/github/TaskManager/user.json"));
+            balance = jsonObjectUser.get("balance").getAsInt();
+            System.out.println(balance);
+
+
             ArrayList<Task> taskList = new ArrayList<>();
             JsonArray jsonArray = (JsonArray) new JsonParser().parse(new FileReader("/home/danp1t/github/TaskManager/collection.json"));
             for (JsonElement jsonElement : jsonArray){

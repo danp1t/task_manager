@@ -1,4 +1,6 @@
-collection.json
+./collection.json
+./user.json
+./done.json
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

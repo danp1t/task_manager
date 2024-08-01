@@ -15,6 +15,7 @@ public class CommandManager {
         listCommand.put("showListTask", new ShowListTask());
         listCommand.put("exit", new Exit());
         listCommand.put("save", new Save());
+        listCommand.put("doneTask", new DoneTask());
     }
 
     public Command getCommand(String command) {
