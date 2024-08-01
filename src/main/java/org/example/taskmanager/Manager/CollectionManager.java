@@ -5,6 +5,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.example.taskmanager.Collection.Task;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class CollectionManager {
@@ -22,7 +24,7 @@ public class CollectionManager {
         return taskList.size();
     }
 
-    private JsonArray getJSON(){
+    private static JsonArray getJSON(){
         JsonArray jsonArray = new JsonArray();
         for(Task task : taskList){
             JsonObject jsonObject = new JsonObject();
@@ -35,5 +37,14 @@ public class CollectionManager {
         }
 
         return jsonArray;
+    }
+
+    public static void saveJSON() {
+        try(FileWriter writer = new FileWriter("/home/danp1t/github/TaskManager/collection.json", false)) {
+            writer.write(getJSON().toString());
+        } catch (IOException e) {
+            System.out.println("Произошла ошибка при записи в файл");
+            System.out.println(e.getMessage());
+        } ;
     }
 }

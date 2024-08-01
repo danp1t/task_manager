@@ -26,6 +26,7 @@ public class AddTask implements Command {
         ArrayList<Task> tasks = CollectionManager.getTaskList();
         tasks.add(task);
         CollectionManager.setTaskList(tasks);
+        CollectionManager.saveJSON();
 
     }
 
