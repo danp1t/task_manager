@@ -1,8 +1,6 @@
 package org.example.taskmanager.Manager;
 
-import org.example.taskmanager.Command.AddTask;
-import org.example.taskmanager.Command.Help;
-import org.example.taskmanager.Command.ShowListTask;
+import org.example.taskmanager.Command.*;
 import org.example.taskmanager.Interface.Command;
 
 import java.util.HashMap;
@@ -15,6 +13,8 @@ public class CommandManager {
         listCommand.put("help", new Help());
         listCommand.put("addTask", new AddTask());
         listCommand.put("showListTask", new ShowListTask());
+        listCommand.put("exit", new Exit());
+        listCommand.put("save", new Save());
     }
 
     public Command getCommand(String command) {

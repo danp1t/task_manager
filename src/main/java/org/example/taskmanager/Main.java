@@ -10,6 +10,7 @@ package org.example.taskmanager;
 
 import org.example.taskmanager.Exception.NotFoundCommand;
 import org.example.taskmanager.Interface.Command;
+import org.example.taskmanager.Manager.CollectionManager;
 import org.example.taskmanager.Manager.CommandManager;
 
 import java.util.Scanner;
@@ -18,6 +19,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в Task Manager");
         System.out.println("Введите команду help, чтобы увидеть весь список команд");
+        CollectionManager.readJSONfromFile();
 
         while (true) {
             //Блок для ввода команды
