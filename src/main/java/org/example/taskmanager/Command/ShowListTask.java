@@ -23,5 +23,6 @@ public class ShowListTask implements Command {
         for (Task task : taskList) {
             System.out.println(task.getName());
         }
+        System.out.println(CollectionManager.getJSON());
     }
 }

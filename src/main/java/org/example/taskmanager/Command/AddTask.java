@@ -67,7 +67,7 @@ public class AddTask implements Command {
         String prizeStr = scanner.nextLine();
         Integer prize = Integer.valueOf(prizeStr);
 
-        Task task = new Task(taskName, priorityEnum, deadline, prize);
+        Task task = new Task(CollectionManager.nextID(), taskName, priorityEnum, deadline, prize);
         return task;
 
     }

@@ -1,4 +1,12 @@
 package org.example.taskmanager;
+//1. Хранение списка задач в файле/базе данных
+//2. Отдебажить ввод задач. Добавить обработку ошибок
+//3. Создать объект для пользователя (id, name, balance)
+//5. Сделать удаление задач по ID
+//6. Сделать выполнение задач с начислением баллов
+//7. Сделать так, чтобы выполненные задачи уходили в базу "Done"
+
+
 
 import org.example.taskmanager.Exception.NotFoundCommand;
 import org.example.taskmanager.Interface.Command;

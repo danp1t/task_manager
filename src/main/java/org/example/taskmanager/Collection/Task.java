@@ -1,6 +1,7 @@
 package org.example.taskmanager.Collection;
 
 public class Task {
+    private int id;
     private String name;
     private Priority priority;
     private java.time.LocalDateTime deadline;
@@ -13,7 +14,19 @@ public class Task {
         this.prize = prize;
     }
 
+    public Task(int id, String name, Priority priority, java.time.LocalDateTime deadline, int prize) {
+        this.id = id;
+        this.name = name;
+        this.priority = priority;
+        this.deadline = deadline;
+        this.prize = prize;
+    }
+
     //Getter
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -48,6 +61,6 @@ public class Task {
     }
 
     public String toString() {
-        return "name: " + this.name + "\npriority: " + this.priority + "\ndeadline: " + this.deadline + "\nprize: " + this.prize;
+        return "id: " + this.id + "\nname: " + this.name + "\npriority: " + this.priority + "\ndeadline: " + this.deadline + "\nprize: " + this.prize;
     }
 }
