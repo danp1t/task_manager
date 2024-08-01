@@ -1,10 +1,21 @@
 package org.example.taskmanager.Collection;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Task {
+    @SerializedName("id")
     private int id;
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("priority")
     private Priority priority;
-    private java.time.LocalDateTime deadline;
+
+    @SerializedName("deadline")
+    public java.time.LocalDateTime deadline;
+
+    @SerializedName("prize")
     private int prize;
 
     public Task(String name, Priority priority, java.time.LocalDateTime deadline, int prize) {
