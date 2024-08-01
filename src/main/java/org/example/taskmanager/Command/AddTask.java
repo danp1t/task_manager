@@ -2,6 +2,7 @@ package org.example.taskmanager.Command;
 
 import org.example.taskmanager.Collection.Priority;
 import org.example.taskmanager.Collection.Task;
+import org.example.taskmanager.Exception.NotPositivePrize;
 import org.example.taskmanager.Interface.Command;
 import org.example.taskmanager.Manager.CollectionManager;
 
@@ -23,9 +24,12 @@ public class AddTask implements Command {
     @Override
     public void execute(String[] tokens) {
         Task task = inputTask();
-        ArrayList<Task> tasks = CollectionManager.getTaskList();
-        tasks.add(task);
-        CollectionManager.setTaskList(tasks);
+        if (task != null) {
+            ArrayList<Task> tasks = CollectionManager.getTaskList();
+            tasks.add(task);
+            CollectionManager.setTaskList(tasks);
+        }
+
     }
 
     private Task inputTask() {
@@ -50,23 +54,51 @@ public class AddTask implements Command {
                 priorityEnum = Priority.NOTSTATED;
             }
         }
+        Integer day, month, year, hour, minute;
         System.out.print("Введите дату дедлайна задачи (формат dd.mm.yyyy): ");
         String[] deadlineDate = scanner.nextLine().split("\\.");
-        Integer day = Integer.valueOf(deadlineDate[0]);
-        Integer month = Integer.valueOf(deadlineDate[1]);
-        Integer year = Integer.valueOf(deadlineDate[2]);
+        LocalDateTime now = LocalDateTime.now();
+        if (deadlineDate.length != 3) {
+            day = now.getDayOfMonth() + 1;
+            month = now.getMonthValue();
+            year = now.getYear();
+        }
+        else {
+            day = Integer.valueOf(deadlineDate[0]);
+            month = Integer.valueOf(deadlineDate[1]);
+            year = Integer.valueOf(deadlineDate[2]);
+        }
         System.out.print("Введите время дедлайна задачи (формат hh:mm): ");
         String[] deadlineTime = scanner.nextLine().split(":");
-        Integer hour = Integer.valueOf(deadlineTime[0]);
-        Integer minute = Integer.valueOf(deadlineTime[1]);
+        System.out.println(deadlineTime.length);
+        if (deadlineTime.length != 2) {
+            hour = now.getHour();
+            minute = now.getMinute();
+        }
+        else {
+            hour = Integer.valueOf(deadlineTime[0]);
+            minute = Integer.valueOf(deadlineTime[1]);
+        }
+
 
         LocalDateTime deadline = LocalDateTime.of(year, month, day, hour, minute);
 
         System.out.print("Введите размер баллов за задачу: ");
         String prizeStr = scanner.nextLine();
-        Integer prize = Integer.valueOf(prizeStr);
+        Integer prize = 1;
+        Task task = null;
+        try {
+            if (prizeStr.length() != 0) {
+                prize = Integer.valueOf(prizeStr);
+                if (prize < 0) {
+                    throw new NotPositivePrize();
+                }
+            }
+            task = new Task(CollectionManager.nextID(), taskName, priorityEnum, deadline, prize);
+        } catch (NotPositivePrize e) {
+            System.out.println(e.sendMessage());
+        }
 
-        Task task = new Task(CollectionManager.nextID(), taskName, priorityEnum, deadline, prize);
         return task;
 
     }

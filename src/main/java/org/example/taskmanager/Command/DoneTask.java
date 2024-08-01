@@ -58,7 +58,10 @@ public class DoneTask implements Command {
                     System.out.println("Файл для сохранения коллекции не найден");
                 }
             }
-            CollectionManager.setTaskList(newTaskList);
         }
+        if (newTaskList.size() == taskList.size()) {
+            System.out.println("ID не был найден. =(");
+        }
+        CollectionManager.setTaskList(newTaskList);
     }
 }
