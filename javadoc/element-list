@@ -1,0 +1,7 @@
+module:org.example.taskmanager
+org.example.taskmanager
+org.example.taskmanager.Collection
+org.example.taskmanager.Command
+org.example.taskmanager.Exception
+org.example.taskmanager.Interface
+org.example.taskmanager.Manager

@@ -12,8 +12,17 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+/**
+ * Класс для работы с коллекцией
+ */
 public class CollectionManager {
+    /**
+     * Список задач
+     */
     private static ArrayList<Task> taskList = new ArrayList<>();
+    /**
+     * Баланс
+     */
     private static int balance;
 
     public static ArrayList<Task> getTaskList() {
@@ -32,10 +41,17 @@ public class CollectionManager {
         balance = balance1;
     }
 
+    /**
+     * @return возвращает id следующей задачи
+     */
     public static int nextID(){
         return taskList.size();
     }
 
+    /**
+     * Переводит коллекцию из оперативной памяти в JSON формат
+     * @return JspnArray с задачами
+     */
     private static JsonArray getJSON(){
         JsonArray jsonArray = new JsonArray();
         for(Task task : taskList){
@@ -51,6 +67,9 @@ public class CollectionManager {
         return jsonArray;
     }
 
+    /**
+     * Сохраняет коллекцию в файл
+     */
     public static void saveJSON() {
         Gson gson = new Gson();
         try {
@@ -70,6 +89,9 @@ public class CollectionManager {
         }
     }
 
+    /**
+     * Читает коллекцию из файла в оперативную память
+     */
     public static void readJSONfromFile(){
         try {
             JsonObject jsonObjectUser = (JsonObject) new JsonParser().parse(new FileReader("/home/danp1t/github/TaskManager/user.json"));

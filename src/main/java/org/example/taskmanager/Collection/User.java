@@ -1,5 +1,9 @@
 package org.example.taskmanager.Collection;
 
+/**
+ * Данный класс описывает пользователя
+ * У пользователя есть баланс, с которого он может снять баллы, если решит отдохнуть.
+ */
 public class User {
     private int id;
     private String name;

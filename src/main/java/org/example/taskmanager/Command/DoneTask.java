@@ -11,6 +11,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Класс, реализующий команду "doneTask"
+ * Эта команда отмечает задачу выполненой
+ */
 public class DoneTask implements Command {
     @Override
     public String getCommandName() {

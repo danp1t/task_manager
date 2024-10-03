@@ -3,6 +3,9 @@ package org.example.taskmanager.Command;
 import org.example.taskmanager.Interface.Command;
 import org.example.taskmanager.Manager.CollectionManager;
 
+/**
+ * Команды для вывода баланса пользователя
+ */
 public class ShowBalance implements Command {
     @Override
     public String getCommandName() {

@@ -3,6 +3,9 @@ package org.example.taskmanager.Command;
 import org.example.taskmanager.Interface.Command;
 import org.example.taskmanager.Manager.CollectionManager;
 
+/**
+ * Команда для сохранения данных в файл
+ */
 public class Save implements Command {
     @Override
     public String getCommandName() {

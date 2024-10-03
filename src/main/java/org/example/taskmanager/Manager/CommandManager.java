@@ -5,10 +5,15 @@ import org.example.taskmanager.Interface.Command;
 
 import java.util.HashMap;
 
+/**
+ * Класс для работы с командами
+ */
 public class CommandManager {
     private HashMap<String, Command> listCommand = new HashMap<>();
 
-    //Список команд
+    /**
+     * Хранит список команд
+     */
     public CommandManager() {
         listCommand.put("help", new Help());
         listCommand.put("addTask", new AddTask());

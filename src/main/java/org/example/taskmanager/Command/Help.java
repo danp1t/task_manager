@@ -5,6 +5,9 @@ import org.example.taskmanager.Manager.CommandManager;
 
 import java.util.HashMap;
 
+/**
+ * Команда для вывода списка команд и их описания
+ */
 public class Help implements Command {
     @Override
     public String getCommandName() {

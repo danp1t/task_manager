@@ -10,6 +10,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Данный класс описывает команду добавления нового задания.
+ */
 public class AddTask implements Command {
     @Override
     public String getCommandName() {
@@ -32,6 +35,10 @@ public class AddTask implements Command {
 
     }
 
+    /**
+     * Данный метод ввода задачи и её параметров.
+     * @return экземпляр задачи
+     */
     private Task inputTask() {
         System.out.print("Введите текст задачи: ");
         Scanner scanner = new Scanner(System.in);
@@ -70,7 +77,6 @@ public class AddTask implements Command {
         }
         System.out.print("Введите время дедлайна задачи (формат hh:mm): ");
         String[] deadlineTime = scanner.nextLine().split(":");
-        System.out.println(deadlineTime.length);
         if (deadlineTime.length != 2) {
             hour = now.getHour();
             minute = now.getMinute();

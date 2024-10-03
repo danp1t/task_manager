@@ -1,5 +1,9 @@
 package org.example.taskmanager.Collection;
 
+/**
+ * Класс для хранения информации о награде
+ * Награда подразумевает под собой некое поощерение за выполнение задания
+ */
 public class Award {
     public String name;
     public int cost;

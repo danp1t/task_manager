@@ -3,6 +3,9 @@ package org.example.taskmanager.Command;
 import org.example.taskmanager.Interface.Command;
 import org.example.taskmanager.Manager.CollectionManager;
 
+/**
+ * Команда выхода из приложения
+ */
 public class Exit implements Command {
     @Override
     public String getCommandName() {

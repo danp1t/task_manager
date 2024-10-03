@@ -2,6 +2,10 @@ package org.example.taskmanager.Collection;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Данный класс содержит информацию о задаче
+ * Задача - это действие, которое мы должны совершить, чтобы получить награду.
+ */
 public class Task {
     @SerializedName("id")
     private int id;

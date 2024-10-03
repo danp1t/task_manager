@@ -6,6 +6,9 @@ import org.example.taskmanager.Manager.CollectionManager;
 
 import java.util.ArrayList;
 
+/**
+ * Команда для вывода списка задач
+ */
 public class ShowListTask implements Command {
     @Override
     public String getCommandName() {

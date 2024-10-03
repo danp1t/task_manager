@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: org.example.taskmanager.Main
+Class-Path: javafx-controls-17.0.6-linux.jar javafx-graphics-17.0.6.jar 
+ javafx-fxml-17.0.6-linux.jar javafx-controls-17.0.6.jar javafx-fxml-17.
+ 0.6.jar gson-2.11.0.jar javafx-base-17.0.6-linux.jar error_prone_annota
+ tions-2.27.0.jar javafx-base-17.0.6.jar javafx-graphics-17.0.6-linux.ja
+ r
+
